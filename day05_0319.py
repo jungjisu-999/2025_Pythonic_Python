@@ -1,16 +1,21 @@
-# [] : list mutable
-# () : tuple immutable 하나를 바꾸고 싶어도 list처럼 한 개만 바꾸지 못 한다.
-# {} : dictionary / key : value
-# {} : set
+# for x in 'apple':
+for x in "'{'1': 'one', '20' : 'twenty'}": # 아 뭔가 이상하다.전부 짤리네
 
-import funs as FS
-#from funs import table
-#FS.table(3,5)
+    print('-'*8)
+    print(x)
 
-#print( dir( FS ) )
-#funs.table(3,5)
+n = 10
+s = 0
+for i in range(n):
+    s = s +( i + 1)
 
-#print( funs.addition(10, 20) )
-exec( open('funs.py', 'r').read() )
+    print( s )
+
+
+import random
+x = random.choices[1, 2, 3, 4, 5, 6, 7, 8, 9,10], [10, 4, 5, 7, 8, 10, 4, 5 ,7, 8], k=6)
+print(x)
+
+# 숙제로 나갈 예정.
 
 
