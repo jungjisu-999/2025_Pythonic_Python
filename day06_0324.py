@@ -1,15 +1,17 @@
-# 30분 지각 monday
+#indexing
 
-import random
-lr = [1, -1]
-wt = [0.7, 0.3]
+s = 'apple'
+L = [1, 3.14, 'good', [10, 20, 30] ]
+t = (1, 10, 100, '1000')
 
-n = 100
-curr = 0
-print('my initial position =', curr)
+print(repr( s[0] ))
 
-for k in range( n ):
-    curr = curr + random.choices(lr, wt, k=1)[0]
-    print( curr)
+print( L[2][1] )
+print( L[3][2] )
 
-print('my current position =', curr)
+print(s[2:6:2])
+print(L[1:3])
+print(t[1:3])
+print(s[3:-1])
+print(s[3:])
+
