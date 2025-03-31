@@ -1,27 +1,28 @@
-def cut_by_piece(S, piece, n_max ):
-    L_piece = len(piece)
-    L_S = len( S )
+S = ' Straw.Berry is good\n '
 
-    found = []
+print(' (1) print(S)')
+print('['+S+']')
+print( '(2) print( repr(S) )')
+print('[' + repr(S)+ ']')
 
-    for ith in range( L_S ) :
-        k = S.find(piece )
-        if k == -1:
-            found.append( len(S))
-            return found
+#String: formatting Methods(3/5)
 
-        found.append( k )
-        S = S[k+L_piece:]
+S0 = 'It is very nice to learn PYthon.'
+print('S0 =', S0)
+S1 = 'It %s very %s to learn %s.' % ('is', 'nice','Python')
+print('S1 =', S1)
 
-    return found
-def find_all(S, piece, n_max):
-    res = cut_by_piece( S, piece, n_max)
-    return res
+S2 = 'It {} very {} to learn {}.'.format('is','nice','Python')
+print('S2 =', S2)
+S3 = 'It {0} very {1} to arn {2}.'.format('is','nice', 'Python')
+print('S3 =', S3)
+S4 = 'It {2} very {1} to learn {0}.'.format('is', 'nice','Python')
+print('S4 =', S4)
 
-
-if __name__=='__main__':
-    S_given = '1234XXX56XXX7890123XXX98765'
-    result = find_all( S_given, 'XXX', 100)
-    print( result)
+try:
+    S_err = 'It {0} very {1} to learn {4}.'.format('is', 'nice', 'Python')
+    print('S_err=', S_err)
+except IndexError as e:
+    print( e )
 
 
