@@ -1,28 +1,42 @@
-# numpy package(2/3)
+# numpy more(3/3)
 
 import numpy as np
 
-seq_lin = np.linspace(0, 1, 10)
+matA = np.array([[0,2], [2,3]])
+print('matrix -->\n ', matA)
 
-print('(1) make linear sequence:')
-print('seq_lin)=', seq_lin )
-print('type(seq_lin) =', type(seq_lin))
-print('seq_lin[3:8] =', seq_lin[3:8])
+# eigenvalue-eigenvector of mat
+result = np.linalg.eig( matA)
 
-mat = np.array([ [ x**n for n in range(5)] for x in range(1,4)])
-print(mat)
-print(mat[2:1])
-print( mat[2:,1:3]) # 질문
-print(mat.T)   # 질문 : T가 mat의 attribute인지 / __setattr__ / class때 배울 예정
+print('(1) result type -->', type(result))
+print('result = ', result)
+print('(2) eigenvalue: ', result.eigenvalues)
+print('(3) eigenvalue:', result[0])
+print('(4) eigenvalue:', result.eigenvectors)
+print('(5) eigenvector:', result[1])
 
-# A.T : A에는 T라는 attribute가 정의 되어 있다.
-# attribute : 함수 name이다.
+#singular value decomposition : 머신러닝, 통계학과에서 자주 사용
+matB = np.array([[0,2], [2,3], [1,1]])
+print('matrix -->\n ', matB)
+result = np.linalg.svd( matB)
+print('(6) result type --> ', type(result))
+print('result =', result)
+U = result.U
+S = result.S
+Vh = result.Vh
+print('U -->\n', U)
+print('S = ', S)
+print('Vh -->\n', Vh)
 
-mat[:2,1:4] = np.array( [ [10,20,30], [-10,-20,-30]])
-#Or, mat[:2,1:4] = [[ 10,20,30], [-10,-20,-30]]
-print(mat)
-if type(mat) == list:
-    print('(4) mat is a list.')
-else:
-    print('(5) mat is not a list: type(mat)=', type(mat))
+#Sigma matrix
+m,n = matB.shape
+Sigma = np.zeros(n*m).reshape(m,n)
+sub = np.diag( S )
+Sigma[:len(S), :len(S)] = sub
+print('Sigma -->\n', Sigma)
+print('U Sigma Vh -->\n', U@Sigma@Vh)
+
+# x,y = 3,4 : 튜플 unpacking
+# x,y = [3,4] : unpacking
+
 
